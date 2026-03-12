@@ -1,5 +1,5 @@
 // Complexity O(logn) 
-function binaryToDecimal(n) {
+function decimalToBinary(n) {
     let retVal = '';
     while (n > 0) {
         retVal = n % 2 + retVal;
@@ -9,7 +9,7 @@ function binaryToDecimal(n) {
 
 }
 
-function binaryToDecimalBitwise(n) {
+function decimalToBinaryBitwise(n) {
     let retVal = '';
     while (n > 0) {
         retVal = (n & 1) + retVal;
@@ -18,14 +18,14 @@ function binaryToDecimalBitwise(n) {
     return retVal;
 }
 
-function binaryToDecimalBuiltIn(n) {
+function decimalToBinaryBuiltIn(n) {
     return n.toString(2);
 }
 
-function binaryToDecimalRecursive(n) {
+function decimalToBinaryRecursive(n) {
     if (n === 0) {
         return "";
     }
-    return (binaryToDecimalRecursive(Math.floor(n / 2)) + n % 2);
+    return (decimalToBinaryRecursive(Math.floor(n / 2)) + n % 2);
 }
-console.log(binaryToDecimalRecursive(10));
+console.log(decimalToBinaryRecursive(10));
