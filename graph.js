@@ -14,6 +14,25 @@ class Graph {
         this.adjList[v1].push(v2);
         this.adjList[v2].push(v1);
     }
+
+    // undirected approach
+    checkEdge(v1, v2) {
+        let retVal = false;
+        const list1 = this.adjList[v1];
+        if (list1) {
+            for (let i = 0; i < list1.length; i++) {
+                if (list1[i] === v2) {
+                    retVal = true;
+                    break;
+                }
+            }
+        }
+        return retVal;
+    }
+    //undirected approach
+    checkEdgeBetter(v1, v2){
+        return this.adjList[v1]?.includes(v2) || false;
+    }
 }
 // Space: O(V+E)
 const graph = new Graph();
@@ -24,7 +43,7 @@ graph.addVertex('C');
 graph.addEdge('A', 'B');
 
 console.log(graph.adjList);
-
+console.log(graph.checkEdge('A', 'B'))
 // Using Graph Matrix
 
 class GraphMatrix {
