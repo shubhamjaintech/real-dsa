@@ -32,7 +32,14 @@ function buildBst(ar) {
     return root;
 
 }
-module.exports = { Node, insert, buildBst };
+
+function height(root){
+    if(!root){
+        return 0;
+    }
+    return 1 + Math.max( height(root.left), height(root.right));
+}
+module.exports = { Node, insert, buildBst, height };
 // single line input and then print bst
 // rl.on("line", (input) => {
 //     const arr = input.split(" ").map(Number);
@@ -46,11 +53,15 @@ rl.on('line', (input) => {
     if (input === 'stop') {
         // print tree
         console.log(JSON.stringify(root, null, 2));
+     console.log(height(root));
         rl.close();
         return;
     } else {
         root = insert(root, Number(input));
+        
 
     }
+    
 
 })
+

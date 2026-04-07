@@ -1,4 +1,4 @@
-const { Node, insert, buildBst } = require('./bst3');
+const { Node, insert, buildBst, height } = require('./bst3');
 
 test('insert creates root node when root is null', () => {
     let root = null;
@@ -28,4 +28,16 @@ test('buildBst constructs expected tree from array', () => {
     expect(root.left.right.value).toBe(7);
     expect(root.right.value).toBe(15);
     expect(root.right.left.value).toBe(12);
+});
+test('height of tree', () => {
+    const arr = [10, 5, 1, 7, 15, 12];
+    const root = buildBst(arr);
+    const heightOfTree = height(root);
+    expect(heightOfTree).toBe(3);
+});
+test('height of empty root', () => {
+    const arr = [];
+    const root = buildBst(arr);
+    const heightOfTree = height(root);
+    expect(heightOfTree).toBe(0);
 });
