@@ -14,7 +14,7 @@ class DoublyLinkedList {
     }
     // Time O1
     append(value) {
-        let newNode = Node(value);
+        let newNode = new Node(value);
         if (!this.head) {
             this.tail = newNode;
             this.head = newNode;
@@ -27,7 +27,7 @@ class DoublyLinkedList {
     }
     // Time o1
     prepend(value) {
-        let newNode = Node(value);
+        let newNode = new Node(value);
         if (!this.head) {
             this.tail = newNode;
             this.head = newNode;
@@ -52,10 +52,18 @@ class DoublyLinkedList {
         }
         if (current == this.head) {
             this.head = current.next;
-            if (this.head) { this.head.prev = null; }
+            if (this.head) {
+                this.head.prev = null;
+            } else {
+                this.tail = null;
+            }
         } else if (current == this.tail) {
             this.tail = current.prev;
-            this.tail.next = null;
+            if (this.tail) {
+                this.tail.next = null;
+            } else {
+                this.head = null;
+            }
         } else {
             current.prev.next = current.next;
             current.next.prev = current.prev;
@@ -66,7 +74,7 @@ class DoublyLinkedList {
     print() {
         let retVal = '';
         let current = this.head;
-        while (current != null) {
+        while (current) {
             retVal += current.value + '->';
             current = current.next;
         }
@@ -77,7 +85,7 @@ class DoublyLinkedList {
     printBackwards() {
         let retVal = '';
         let current = this.tail;
-        while (current != null) {
+        while (current) {
             retVal += current.value + '<-';
             current = current.prev;
         }

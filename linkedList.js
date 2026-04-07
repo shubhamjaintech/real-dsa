@@ -20,7 +20,6 @@ class LinkedList {
             this.tail.next = newNode;
             this.tail = newNode;
         }
-
         this.size++;
     }
     // time O1
@@ -43,20 +42,25 @@ class LinkedList {
         if (this.head.value === value) {
             this.head = this.head.next;
             this.size--;
+            if (!this.head) {
+                this.tail = null;
+            }
             return;
         }
-        const current = this.head;
+        let current = this.head;
         while (current.next && current.next.value !== value) {
             current = current.next;
         }
         if (current.next) {
+            if (current.next === this.tail) {
+                this.tail = current;
+            }
             current.next = current.next.next;
             this.size--;
         }
     }
-// time On
+    // time On
     search(value) {
-
         let current = this.head;
 
         while (current) {
@@ -74,9 +78,11 @@ class LinkedList {
         let current = this.head;
         let retVal = '';
         while (current) {
-            res += current.value + '->'
+            retVal += current.value + '->'
             current = current.next;
         }
-        console.log(retVal + 'null');
+        return retVal + 'null';
     }
 }
+
+module.exports = { LinkedList };
