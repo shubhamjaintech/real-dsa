@@ -12,7 +12,6 @@ class Node {
         this.right = null;
     }
 }
-
 function insert(root, value) {
     if (root === null) {
         root = new Node(value);
@@ -33,6 +32,7 @@ function buildBst(ar) {
     return root;
 
 }
+module.exports = { Node, insert, buildBst };
 // single line input and then print bst
 // rl.on("line", (input) => {
 //     const arr = input.split(" ").map(Number);

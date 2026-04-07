@@ -1,0 +1,23 @@
+{
+  "name": "your-project-name",
+  "version": "1.0.0",
+  "scripts": {
+    "test": "jest"
+  },
+  "devDependencies": {
+    "jest": "^27.0.0"
+  },
+  "description": "",
+  "main": "bst.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shubhamjaintech/real-dsa.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shubhamjaintech/real-dsa/issues"
+  },
+  "homepage": "https://github.com/shubhamjaintech/real-dsa#readme"
+}

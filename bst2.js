@@ -39,4 +39,4 @@ function buildBalancedBst(arr, left = 0, right = arr.length - 1) {
 
 }
 // console.log(buildBst([1,2,3,4,5]))
-console.log(buildBalancedBst([1, 2, 3, 4, 5]));
+console.log(buildBalancedBst([1, 2, 3, 4, 5])); 
